@@ -1,0 +1,107 @@
+import {Options, Vue} from 'vue-class-component';
+import 'admin-lte/plugins/jquery/jquery.min.js';
+import $ from 'jquery';
+import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
+import 'admin-lte/dist/js/adminlte.js';
+import 'admin-lte/plugins/chart.js/Chart.min.js';
+// import 'admin-lte/dist/js/demo.js';
+// import 'admin-lte/dist/js/pages/dashboard3.js';
+
+@Options({})
+export default class Dashboard extends Vue {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  mounted() {
+    /* global Chart:false */
+
+    $(function () {
+      'use strict';
+
+      const ticksStyle = {
+        fontColor: '#495057',
+        fontStyle: 'bold'
+      };
+
+      const mode = 'index';
+      const intersect = true;
+
+      const $salesChart = $('#sales-chart');
+      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const salesChart = new Chart($salesChart, {
+        type: 'bar',
+        data: {
+          labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          datasets: [
+            {
+              backgroundColor: '#007bff',
+              borderColor: '#007bff',
+              data: [1000, 2000, 3000, 2500, 2700, 2500, 3000]
+            },
+            {
+              backgroundColor: '#ced4da',
+              borderColor: '#ced4da',
+              data: [700, 1700, 2700, 2000, 1800, 1500, 2000]
+            }
+          ]
+        },
+        options: {
+          maintainAspectRatio: false,
+          tooltips: {
+            mode: mode,
+            intersect: intersect
+          },
+          hover: {
+            mode: mode,
+            intersect: intersect
+          },
+          legend: {
+            display: false
+          },
+          scales: {
+            yAxes: [
+              {
+                // display: false,
+                gridLines: {
+                  display: true,
+                  lineWidth: '4px',
+                  color: 'rgba(0, 0, 0, .2)',
+                  zeroLineColor: 'transparent'
+                },
+                ticks: $.extend(
+                  {
+                    beginAtZero: true,
+
+                    // Include a dollar sign in the ticks
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    callback: function (value) {
+                      if (value >= 1000) {
+                        value /= 1000;
+                        value += 'k';
+                      }
+
+                      return '$' + value;
+                    }
+                  },
+                  ticksStyle
+                )
+              }
+            ],
+            xAxes: [
+              {
+                display: true,
+                gridLines: {
+                  display: false
+                },
+                ticks: ticksStyle
+              }
+            ]
+          }
+        }
+      });
+    });
+
+    // lgtm [js/unused-local-variable]
+  }
+}
