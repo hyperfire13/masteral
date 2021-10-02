@@ -11,7 +11,41 @@ import 'admin-lte/plugins/chart.js/Chart.min.js';
 export default class Dashboard extends Vue {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   mounted() {
-    /* global Chart:false */
+    //-------------
+    // - PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const canvas = <HTMLCanvasElement> document.getElementById('pieChart');
+    const pieChartCanvas = canvas.getContext('2d');
+    const pieData = {
+      labels: ['Needs Improvement', 'Good'],
+      datasets: [
+        {
+          data: [30, 25],
+          backgroundColor: ['#f56954', '#00a65a']
+        }
+      ]
+    };
+    const pieOptions = {
+      legend: {
+        display: false
+      }
+    };
+    // Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const pieChart = new Chart(pieChartCanvas, {
+      type: 'doughnut',
+      data: pieData,
+      options: pieOptions
+    });
+
+    //-----------------
+    // - END PIE CHART -
+    //-----------------y
 
     $(function () {
       'use strict';
@@ -101,7 +135,89 @@ export default class Dashboard extends Vue {
         }
       });
     });
+  }
+  showCompetency() {
+    
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    $('#modal-default').modal('show')
+    setTimeout(function () {
+      $(function () {
+        'use strict';
+        const ticksStyle = {
+          fontColor: '#495057',
+          fontStyle: 'bold'
+        };
 
-    // lgtm [js/unused-local-variable]
+        const mode = 'index';
+        const intersect = true;
+
+        const $competencyChart = $('#competency-chart');
+        // eslint-disable-next-line no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const competencyChart = new Chart($competencyChart, {
+          type: 'bar',
+          data: {
+            labels: ['Module 1 (Simple Tenses) 47%', 'Module 2 (Punctation) 88%', 'Module 3 (Vocabulary) 67%'],
+            datasets: [
+              {
+                label: 'Average Percentage',
+                backgroundColor: ['#DC3545', '#28A745', '#28A745'],
+                borderColor: '#007bff',
+                data: [47, 88, 67]
+              }
+            ]
+          },
+          options: {
+            maintainAspectRatio: false,
+            tooltips: {
+              mode: mode,
+              intersect: intersect
+            },
+            hover: {
+              mode: mode,
+              intersect: intersect
+            },
+            legend: {
+              display: false
+            },
+            scales: {
+              yAxes: [
+                {
+                  // display: false,
+                  gridLines: {
+                    display: true,
+                    lineWidth: '4px',
+                    color: 'rgba(0, 0, 0, .2)',
+                    zeroLineColor: 'transparent'
+                  },
+                  ticks: $.extend(
+                    {
+                      beginAtZero: true,
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore
+                      callback: function (value) {
+                        return value + '%';
+                      }
+                    },
+                    ticksStyle
+                  )
+                }
+              ],
+              xAxes: [
+                {
+                  display: true,
+                  gridLines: {
+                    display: false
+                  },
+                  ticks: ticksStyle
+                }
+              ]
+            }
+          }
+        });
+      });
+    }, 2000);
   }
 }
