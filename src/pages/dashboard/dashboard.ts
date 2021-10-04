@@ -22,7 +22,7 @@ export default class Dashboard extends Vue {
       labels: ['Needs Improvement', 'Good'],
       datasets: [
         {
-          data: [30, 25],
+          data: [30, 70],
           backgroundColor: ['#f56954', '#00a65a']
         }
       ]

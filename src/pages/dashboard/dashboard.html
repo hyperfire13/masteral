@@ -109,7 +109,7 @@
                     <th>Result</th> -->
                   </tr>
                   <tr>
-                    <td>Doe Bob</td>
+                    <td>Adams Bob</td>
                     <td><button v-on:click="showCompetency()" type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>7</td>
                     <td>5</td>
@@ -129,7 +129,7 @@
                    
                   </tr>
                   <tr>
-                    <td>Doe Jim</td>
+                    <td>Bell Jim</td>
                     <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>7</td>
                     <td>7</td>
@@ -148,7 +148,7 @@
                     <td class="bg-danger">N.I.</td>
                   </tr>
                   <tr>
-                    <td>Doe John</td>
+                    <td>Carter John</td>
                     <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>1</td>
                     <td>1</td>
@@ -186,7 +186,7 @@
                     <td class="bg-success">Good</td>
                   </tr>
                   <tr>
-                    <td>Doe Mike</td>
+                    <td>Ellis Mike</td>
                     <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>1</td>
                     <td>1</td>
@@ -205,7 +205,7 @@
                     <td class="bg-danger">N.I.</td>
                   </tr>
                   <tr>
-                    <td>Doe Rocky</td>
+                    <td>Fay Rocky</td>
                     <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>7</td>
                     <td>7</td>
@@ -224,7 +224,7 @@
                     <td class="bg-danger">N.I.</td>
                   </tr>
                   <tr>
-                    <td>Doe Victoria</td>
+                    <td>Garen Victoria</td>
                     <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>7</td>
                     <td>7</td>
@@ -244,7 +244,7 @@
                   </tr>
                   <tr>
                     <td> <div class="image">
-                    </div>Pierce Alexander</td>
+                    </div>Harrison Alexander</td>
                     <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
                     <td>7</td>
                     <td>7</td>
@@ -319,8 +319,8 @@
 <section class="content">
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Learning Distribution (Section 1)</h3>
-
+      <h3 class="card-title">Learning Distribution</h3>
+      
       <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse">
           <i class="fas fa-minus"></i>
@@ -333,17 +333,39 @@
     <!-- /.card-header -->
     <div class="card-body">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label>Section:</label>
+            <select class="form-control">
+              <option>Section 1</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Module:</label>
+            <select class="form-control">
+              <option>Simple Tenses</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+              <option>option 5</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="chart-responsive">
             <canvas id="pieChart" height="150"></canvas>
           </div>
           <!-- ./chart-responsive -->
         </div>
         <!-- /.col -->
-        <div class="col-md-4">
+        <div class="col-md-3">
           <ul class="chart-legend clearfix">
-            <li><i class="far fa-circle text-danger"></i> Needs Improvement</li>
-            <li><i class="far fa-circle text-success"></i> Good</li>
+            <li><i class="far fa-circle text-danger"></i> Needs Improvement : 30%</li>
+            <li><i class="far fa-circle text-success"></i> Good : 70%</li>
           </ul>
         </div>
         <!-- /.col -->
@@ -360,7 +382,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Alexander Pierce</h4>
+        <h4 class="modal-title">Adams Bob</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -397,7 +419,6 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Close</button>
       </div>
     </div>
     <!-- /.modal-content -->
