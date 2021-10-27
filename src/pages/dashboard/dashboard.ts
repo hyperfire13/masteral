@@ -1,5 +1,6 @@
 import {Options, Vue} from 'vue-class-component';
 import 'admin-lte/plugins/jquery/jquery.min.js';
+// npm install @types/jquery --save
 import $ from 'jquery';
 import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
 import 'admin-lte/dist/js/adminlte.js';
